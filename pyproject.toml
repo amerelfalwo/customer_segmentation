@@ -1,7 +1,7 @@
 [project]
-name = "costomer-segmentaion"
+name = "customer-segmentation"
 version = "0.1.0"
-description = "Add your description here"
+description = "Professional Customer Segmentation System using K-Means"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -10,4 +10,20 @@ dependencies = [
     "pandas>=3.0.2",
     "scikit-learn>=1.8.0",
     "seaborn>=0.13.2",
+    "fastapi>=0.104.1",
+    "uvicorn>=0.24.0",
+    "pydantic>=2.0.0",
+    "requests>=2.31.0",
+    "joblib>=1.3.2",
 ]
+
+[project.scripts]
+segmentation-api = "customer_segmentation.api.main:main"
+segmentation-cli = "customer_segmentation.cli.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/customer_segmentation"]
